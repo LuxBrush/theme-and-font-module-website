@@ -68,8 +68,8 @@ export const themes = {
     state: 'light',
     sheet: document.getElementById('theme'),
     links: {
-        light: '/themes/light.css',
-        dark: '/themes/dark.css'
+        light: './themes/light.css',
+        dark: './themes/dark.css'
     },
     names: {
         light: 'light',
@@ -82,8 +82,8 @@ export const fonts = {
     state: 'oswald',
     sheet: document.getElementById('font'),
     links: {
-        oswald: '/themes/oswald.css',
-        roboto: '/themes/roboto.css'
+        oswald: './themes/oswald.css',
+        roboto: './themes/roboto.css'
     },
     family: {
         oswald: "'Oswald', sans-serif",
@@ -105,28 +105,28 @@ export const nav = {
         home: {
             link_home: {
                 class: 'nav-item',
-                href: '/index.html',
+                href: 'index.html',
                 text: 'Home'
             }
         },
         howToUse: {
             link_use: {
                 class: 'nav-item',
-                href: '/pages/howToUse.html',
+                href: './pages/howToUse.html',
                 text: 'How to Use'
             }
         },
         fontDemo: {
             link_font: {
                 class: 'nav-item',
-                href: '/pages/fontDemo.html',
+                href: './pages/fontDemo.html',
                 text: 'Font Demo'
             }
         },
         themeDemo: {
             link_theme: {
                 class: 'nav-item',
-                href: '/pages/themeDemo.html',
+                href: './pages/themeDemo.html',
                 text: 'Theme Demo'
             }
         }
