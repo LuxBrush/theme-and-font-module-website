@@ -112,21 +112,21 @@ export const nav = {
         howToUse: {
             link_use: {
                 class: 'nav-item',
-                href: './pages/howToUse.html',
+                href: 'howToUse.html',
                 text: 'How to Use'
             }
         },
         fontDemo: {
             link_font: {
                 class: 'nav-item',
-                href: './pages/fontDemo.html',
+                href: 'fontDemo.html',
                 text: 'Font Demo'
             }
         },
         themeDemo: {
             link_theme: {
                 class: 'nav-item',
-                href: './pages/themeDemo.html',
+                href: 'themeDemo.html',
                 text: 'Theme Demo'
             }
         }
