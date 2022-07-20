@@ -1,0 +1,18 @@
+@use 'styleSheet' as *;
+@use 'components' as *;
+$fileID: 'theme';
+$themeID: "dark";
+$primary: #04215f;
+$primaryVariant: #332f57;
+$secondary: #546e7a;
+$secondaryVariant: #89cceb;
+$background: #010003;
+$surface: #0076ac;
+$error: #BF3207;
+$onPrimary: #ffffff;
+$onSecondary: #ffffff;
+$onBackground: #ffffff;
+$onSurface: #ffffff;
+$onError: #000000;
+$alphaColor: #00000000;
+@include setStyleSheet();

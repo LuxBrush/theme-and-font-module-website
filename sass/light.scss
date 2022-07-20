@@ -1,0 +1,18 @@
+@use 'styleSheet' as *;
+@use 'components' as *;
+$fileID: 'theme';
+$themeID: "light";
+$primary: #9ac6ff;
+$primaryVariant: #6896cc;
+$secondary: #03DAC6;
+$secondaryVariant: #006d8f;
+$background: #FFFFFF;
+$surface: #47a0f3;
+$error: #B00020;
+$onPrimary: #000000;
+$onSecondary: #000000;
+$onBackground: #000000;
+$onSurface: #000000;
+$onError: #FFFFFF;
+$alphaColor: #00000000;
+@include setStyleSheet();

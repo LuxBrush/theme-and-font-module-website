@@ -1,0 +1,250 @@
+/*
+ Fist declaration of Font variables, this will be changed by your Font files.
+ The $rootFontSize is used for scaling fonts.
+ Once this is set for a font you can then use rems in your SCSS to get the desired font size.
+ Example: With $rootFontSize set to 1.238px for the Oswald font,
+ and an rem of 30 for the font size you end up with a font size 30px on your screen.
+*/
+/* 
+ The function setStyle will set the value of the css style in the file based on the $fileID.
+ Example:
+ body {
+   display: setStyle('main', grid);
+   place-items: setStyle('main', center);
+   margin: setStyle('main', 0px);
+   padding: setStyle('main', 0px);
+   height: setStyle('main', 100%);
+   color: setStyle('theme', $onBackground);
+   background-color: setStyle('theme', $background);
+   @include setFont($fontMap, normal, normal, null);
+ }
+*/
+/* 
+ This mixin is used to set the font family, weight, style, and size
+ of an style element.
+
+ @param $fontItem   - Used to set the font-family of a style element
+                      and can accept a single font or a font map.
+ @param $fontWeight - Used to set the font-weight of a style element.
+ @param $fontStyle  - Used to set the font-style of a style element.
+ @param $fontSize   - Used to set the font-size and line-height of a style element.
+                      The output will either be a clamp function or your input font size.
+ */
+body {
+  color: #ffffff;
+  background-color: #010003;
+}
+
+a {
+  color: #ffffff;
+}
+a:hover, a:focus {
+  color: #332f57;
+}
+
+.container {
+  color: #ffffff;
+  background-color: #010003;
+}
+
+@media screen and (min-width: 700px) {
+  .container {
+    color: #ffffff;
+    background-color: #04215f;
+  }
+}
+.line {
+  border-bottom: 2px solid #ffffff;
+}
+
+.demoHeader {
+  color: #ffffff;
+}
+.demoSubHeader {
+  color: #ffffff;
+}
+.demoText {
+  color: #ffffff;
+}
+.exampleText {
+  background-color: #04215f;
+}
+@media screen and (min-width: 700px) {
+  .exampleText {
+    background-color: #010003;
+  }
+}
+.codeText {
+  color: #ffffff;
+  background-color: #04215f;
+}
+.codeText b {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 700px) {
+  .codeText {
+    background-color: #010003;
+  }
+}
+.demoList {
+  color: #ffffff;
+}
+.demoList li {
+  color: #ffffff;
+}
+.nav {
+  border-top: 2px solid #ffffff;
+  color: #ffffff;
+  background-color: #04215f;
+}
+.nav-title {
+  color: #ffffff;
+}
+.nav-item {
+  color: #ffffff;
+  background-color: #0076ac;
+}
+.nav-item:focus, .nav-item:hover {
+  color: #89cceb;
+}
+
+@media screen and (min-width: 700px) {
+  .nav {
+    border-style: none;
+  }
+  .nav-item {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+.subNav {
+  color: #ffffff;
+}
+.subNav-item {
+  background-color: #0076ac;
+  color: #ffffff;
+}
+.subNav-item:focus, .subNav-item:hover {
+  color: #010003;
+}
+
+.menuButton {
+  color: #ffffff;
+  background-color: #04215f;
+  border: 2px solid #ffffff;
+}
+.menuButton:focus, .menuButton:hover {
+  color: #ffffff;
+  background-color: #0076ac;
+}
+
+.themeMenu {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  background-color: #04215f;
+}
+.themeMenu h2 {
+  color: #ffffff;
+}
+.themeMenu button {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0);
+}
+.themeMenu button:focus, .themeMenu button:hover {
+  color: #89cceb;
+}
+
+.fontMenu {
+  color: #ffffff;
+  background-color: #04215f;
+  border: 2px solid #ffffff;
+}
+.fontMenu h2 {
+  color: #ffffff;
+}
+.fontMenu button {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0);
+}
+.fontMenu button:focus, .fontMenu button:hover {
+  color: #89cceb;
+}
+
+.text15px {
+  color: #ffffff;
+}
+
+.text20px {
+  color: #ffffff;
+}
+
+.text25px {
+  color: #ffffff;
+}
+
+.text30px {
+  color: #ffffff;
+}
+
+.setOutline {
+  -webkit-text-stroke: 10px #010003;
+}
+
+.bottomNav > a {
+  background-color: #0076ac;
+}
+.bottomNav > a:focus, .bottomNav > a:hover {
+  color: #010003;
+}
+
+.--color {
+  border-color: #ffffff;
+}
+
+.primary {
+  background-color: #04215f;
+}
+
+.primaryVariant {
+  background-color: #332f57;
+}
+
+.secondary {
+  background-color: #546e7a;
+}
+
+.secondaryVariant {
+  background-color: #89cceb;
+}
+
+.background {
+  background-color: #010003;
+}
+
+.surface {
+  background-color: #0076ac;
+}
+
+.error {
+  background-color: #BF3207;
+}
+
+.onPrimary {
+  background-color: #ffffff;
+}
+
+.onSecondary {
+  background-color: #ffffff;
+}
+
+.onBackground {
+  background-color: #ffffff;
+}
+
+.onSurface {
+  background-color: #ffffff;
+}
+
+.onError {
+  background-color: #000000;
+}/*# sourceMappingURL=dark.css.map */

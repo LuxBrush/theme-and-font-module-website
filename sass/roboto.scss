@@ -1,0 +1,13 @@
+@use 'styleSheet' as *;
+@use 'components' as *;
+$fileID: 'font';
+$fontID: 'Roboto';
+$rootFontSize: 1.4px; // by setting this to a pixel value and using rems in the scss file, the font size is scaled to the actual pixel size. Example: 30rem = 30px when the font size is measured on screen.
+$fontTop: 0px;
+$fontBottom: 0px;
+$indent: 1.6ch;
+$lineGap: 8px;
+$useClamp: true;
+$reduction: 0.8;
+$viewWidth: 1200;
+@include setStyleSheet();

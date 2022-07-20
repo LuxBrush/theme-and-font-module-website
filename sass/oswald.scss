@@ -1,0 +1,13 @@
+@use 'styleSheet' as *;
+@use 'components' as *;
+$fileID: 'font';
+$fontID: 'Oswald';
+$rootFontSize: 1.238px;
+$fontTop: -2px;
+$fontBottom: 2px;
+$indent: 1.7ch;
+$lineGap: 8px;
+$useClamp: true;
+$reduction: 0.8;
+$viewWidth: 1200;
+@include setStyleSheet();

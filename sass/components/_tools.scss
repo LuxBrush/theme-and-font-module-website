@@ -1,0 +1,155 @@
+@use "sass:string" as *;
+@use "sass:math" as *;
+@use "sass:color" as *;
+
+// Fist declaration of ID variables, this will be changed by your files.
+$fileID: ''; // 'theme', 'font' or 'main'
+$fontID: ''; // The name of your font
+$themeID: ''; // The name of your theme. Here for future updates. This is currently not being used.
+
+/*
+ Fist declaration of Font variables, this will be changed by your Font files.
+ The $rootFontSize is used for scaling fonts.
+ Once this is set for a font you can then use rems in your SCSS to get the desired font size.
+ Example: With $rootFontSize set to 1.238px for the Oswald font,
+ and an rem of 30 for the font size you end up with a font size 30px on your screen.
+*/
+$rootFontSize: 1px; 
+$fontTop: 0; // The top position of your font.
+$fontBottom: 0; // The bottom position of your font.
+$indent: 1ch; // The indentation of your font.
+$lineGap: 0px; // The gap between lines.
+$useClamp: false; // Set this to true if you'ld like to use the clamp function in your font-size and line-height.
+$reduction: 0.8; // This sets the reduced size of your font in the clamp function. Smaller number, means smaller font.
+$viewWidth: 1280; // This is the view width that you would like your font to start scaling down at.
+
+/* 
+ The function setStyle will set the value of the css style in the file based on the $fileID.
+ Example:
+ body {
+   display: setStyle('main', grid);
+   place-items: setStyle('main', center);
+   margin: setStyle('main', 0px);
+   padding: setStyle('main', 0px);
+   height: setStyle('main', 100%);
+   color: setStyle('theme', $onBackground);
+   background-color: setStyle('theme', $background);
+   @include setFont($fontMap, normal, normal, null);
+ }
+*/
+@function setStyle($file_ID, $styleProperty) {
+    @if $file_ID==$fileID {
+        @return $styleProperty;
+    }
+
+    @else {
+        @return null;
+    }
+}
+
+// The function _setFontFamily is used to set the font family for the current file based on the $fontID.
+@function _setFontFamily($font_ID, $fontName) {
+    @if $font_ID==$fontID {
+        @return $fontName;
+    }
+
+    @else {
+        @return null;
+    }
+}
+
+
+// The function _getNumber will return a number with out any units.
+// Example: _getNumber(3ch) will return 3
+@function _getNumber($value) {
+    @return div($value, ($value * 0 + 1));
+}
+
+// The function _truncate uses slice to truncate numbers. It will return a string.
+// index(#{$value}, ".")+$decimal is used to get the index of the decimal point.
+// Example:  _truncate(1.2345, 2) will return 1.23
+// @param $value - The number you'd like to truncate.
+// @parma $decimal - The decimal at witch to truncate.
+// @return - The truncated number as a string.
+@function _truncate($value, $decimal) {
+    $value: $value + 0.000001; // Add a small number to the value to prevent truncation errors.
+    @return slice(#{$value}, 0, index(#{$value}, ".")+$decimal);
+}
+
+// The function _scaleSize is used to get the scale in vw for scaling the font size to the screen width. It outputs in vw.
+// $value is used as the base number for scaling.
+// $screenWidth is the screen width you want the number to start scaling down at.
+// Example: _scaleSize(30, 1280) will return 2.343vw. The $value here is a font size of 30px.
+@function _scaleSize($value, $screenWidth) {
+    @return _truncate(div(_getNumber($value), _getNumber($screenWidth) * 0.01), 3)+vw;
+}
+
+// This mixin is used to set the font and line size based on the input font size.
+@mixin _setFontSize($inputFontSize) {
+    $fontHight: _getNumber($inputFontSize) * $rootFontSize;
+    $fontScale: _scaleSize($fontHight, $viewWidth);
+    $min: $inputFontSize * $reduction;
+    $lingHight: _getNumber($inputFontSize) + $lineGap;
+    $lineScale: _scaleSize($lingHight, $viewWidth);
+    $minLineHight: _getNumber($min) + $lineGap;
+
+    @if $useClamp==true {
+        font-size: setStyle('font', clamp($min, $fontScale, $inputFontSize));
+        line-height: setStyle('font', clamp($minLineHight, $lineScale, $lingHight));
+    }
+
+    @else {
+        font-size: setStyle('font', $inputFontSize);
+        line-height: setStyle('font', $lingHight);
+    }
+}
+
+// With some fonts you need to correct the height of the element with
+// before and after pseudo-elements.
+@mixin _fontHightCorrection() {
+    &::before {
+        content: setStyle('font', "");
+        margin-bottom: setStyle('font', $fontTop);
+        display: setStyle('font', table);
+    }
+
+    &::after {
+        content: setStyle('font', "");
+        margin-top: setStyle('font', $fontBottom);
+        display: setStyle('font', table);
+    }
+}
+
+/* 
+ This mixin is used to set the font family, weight, style, and size
+ of an style element.
+
+ @param $fontItem   - Used to set the font-family of a style element
+                      and can accept a single font or a font map.
+ @param $fontWeight - Used to set the font-weight of a style element.
+ @param $fontStyle  - Used to set the font-style of a style element.
+ @param $fontSize   - Used to set the font-size and line-height of a style element.
+                      The output will either be a clamp function or your input font size.
+ */
+@mixin setFont($fontItem, $fontWeight, $fontStyle, $fontSize) {
+    @if type-of($fontItem)==map {
+
+        @each $fontName,
+        $font in $fontItem {
+            font-family: setStyle('font', _setFontFamily($fontName, $font));
+        }
+    }
+
+    @else {
+        font-family: setStyle('font', $fontItem);
+    }
+
+    font-weight: setStyle('font', $fontWeight);
+    font-style: setStyle('font', $fontStyle);
+
+    @if $fontSize {
+        @include _setFontSize($fontSize);
+        @include _fontHightCorrection();
+    }
+
+}

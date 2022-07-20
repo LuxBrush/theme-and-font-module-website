@@ -1,0 +1,376 @@
+/*
+ Fist declaration of Font variables, this will be changed by your Font files.
+ The $rootFontSize is used for scaling fonts.
+ Once this is set for a font you can then use rems in your SCSS to get the desired font size.
+ Example: With $rootFontSize set to 1.238px for the Oswald font,
+ and an rem of 30 for the font size you end up with a font size 30px on your screen.
+*/
+/* 
+ The function setStyle will set the value of the css style in the file based on the $fileID.
+ Example:
+ body {
+   display: setStyle('main', grid);
+   place-items: setStyle('main', center);
+   margin: setStyle('main', 0px);
+   padding: setStyle('main', 0px);
+   height: setStyle('main', 100%);
+   color: setStyle('theme', $onBackground);
+   background-color: setStyle('theme', $background);
+   @include setFont($fontMap, normal, normal, null);
+ }
+*/
+/* 
+ This mixin is used to set the font family, weight, style, and size
+ of an style element.
+
+ @param $fontItem   - Used to set the font-family of a style element
+                      and can accept a single font or a font map.
+ @param $fontWeight - Used to set the font-weight of a style element.
+ @param $fontStyle  - Used to set the font-style of a style element.
+ @param $fontSize   - Used to set the font-size and line-height of a style element.
+                      The output will either be a clamp function or your input font size.
+ */
+:root {
+  font-size: 1.4px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+p {
+  font-size: 20rem;
+}
+
+button {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+.demoHeader {
+  font-weight: bold;
+  font-style: normal;
+  font-size: clamp(24rem, 3.500vw, 30rem);
+  line-height: clamp(32px, 3.166vw, 38px);
+}
+.demoHeader::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.demoHeader::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+
+.demoSubHeader {
+  font-weight: bold;
+  font-style: normal;
+  font-size: clamp(19.2rem, 2.800vw, 24rem);
+  line-height: clamp(27.2px, 2.666vw, 32px);
+}
+.demoSubHeader::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.demoSubHeader::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+
+.demoText {
+  font-weight: normal;
+  font-style: normal;
+  font-size: clamp(16rem, 2.333vw, 20rem);
+  line-height: clamp(24px, 2.333vw, 28px);
+}
+.demoText::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.demoText::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+.demoText a {
+  text-decoration: underline;
+}
+
+.exampleText {
+  font-weight: bold;
+  font-style: italic;
+  font-size: clamp(16rem, 2.333vw, 20rem);
+  line-height: clamp(24px, 2.333vw, 28px);
+}
+.exampleText::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.exampleText::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+.exampleText span {
+  text-align: center;
+  font-weight: normal;
+  font-style: italic;
+  font-size: clamp(16rem, 2.333vw, 20rem);
+  line-height: clamp(24px, 2.333vw, 28px);
+}
+.exampleText span::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.exampleText span::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+
+@media screen and (min-width: 700px) {
+  .exampleText span {
+    text-align: left;
+  }
+}
+.codeText {
+  font-size: 1.4px;
+}
+.codeText div {
+  font-family: "Fira Code", monospace;
+  font-size: clamp(12em, 2.001vw, 16em);
+  line-height: clamp(18px, 2.189vw, 28px);
+}
+.inlineCode {
+  font-family: "Fira Code", monospace;
+  font-size: 1.4px;
+}
+.inlineCode b,
+.inlineCode span {
+  font-size: clamp(16em, 2.501vw, 20em);
+}
+
+.demoList li {
+  font-weight: normal;
+  font-style: normal;
+  font-size: clamp(16rem, 2.333vw, 20rem);
+  line-height: clamp(24px, 2.333vw, 28px);
+}
+.demoList li::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.demoList li::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+
+.nav {
+  text-align: center;
+}
+.nav-title {
+  font-weight: bold;
+  font-style: normal;
+  font-size: clamp(16rem, 2.333vw, 20rem);
+  line-height: clamp(24px, 2.333vw, 28px);
+}
+.nav-title::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.nav-title::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+.nav-item {
+  font-weight: normal;
+  font-style: normal;
+  font-size: clamp(19.2rem, 2.800vw, 24rem);
+  line-height: clamp(27.2px, 2.666vw, 32px);
+}
+.nav-item::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.nav-item::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+@media screen and (min-width: 700px) {
+  .nav-item {
+    font-weight: normal;
+    font-style: normal;
+    font-size: clamp(16rem, 2.333vw, 20rem);
+    line-height: clamp(24px, 2.333vw, 28px);
+  }
+  .nav-item::before {
+    content: "";
+    margin-bottom: 0px;
+    display: table;
+  }
+  .nav-item::after {
+    content: "";
+    margin-top: 0px;
+    display: table;
+  }
+}
+.subNav-title {
+  font-weight: bold;
+}
+.menuButton {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: clamp(19.2rem, 2.800vw, 24rem);
+  line-height: clamp(27.2px, 2.666vw, 32px);
+}
+.menuButton::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.menuButton::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+.themeMenu h2 {
+  font-weight: bold;
+  font-style: normal;
+  font-size: clamp(19.2rem, 2.800vw, 24rem);
+  line-height: clamp(27.2px, 2.666vw, 32px);
+}
+.themeMenu h2::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.themeMenu h2::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+.themeMenu button {
+  text-transform: capitalize;
+  font-weight: normal;
+  font-style: normal;
+  font-size: clamp(16rem, 2.333vw, 20rem);
+  line-height: clamp(24px, 2.333vw, 28px);
+}
+.themeMenu button::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.themeMenu button::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+.fontMenu h2 {
+  font-weight: bold;
+  font-style: normal;
+  font-size: clamp(19.2rem, 2.800vw, 24rem);
+  line-height: clamp(27.2px, 2.666vw, 32px);
+}
+.fontMenu h2::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.fontMenu h2::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+.fontMenu button {
+  text-transform: capitalize;
+  font-weight: normal;
+  font-style: normal;
+  font-size: clamp(16rem, 2.333vw, 20rem);
+  line-height: clamp(24px, 2.333vw, 28px);
+}
+.fontMenu button::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.fontMenu button::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+.text15px {
+  font-size: 15rem;
+}
+
+.text20px {
+  font-size: 20rem;
+}
+
+.text25px {
+  font-size: 25rem;
+}
+
+.text30px {
+  font-size: 30rem;
+}
+
+.indent {
+  padding-left: 1.6ch;
+}
+
+.indent2 {
+  padding-left: 3.2ch;
+}
+
+.codeIndent {
+  padding-left: 2ch;
+}
+
+.codeIndent2 {
+  padding-left: 4ch;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.bottomNav > a {
+  font-size: clamp(16rem, 2.333vw, 20rem);
+  line-height: clamp(24px, 2.333vw, 28px);
+}
+.bottomNav > a::before {
+  content: "";
+  margin-bottom: 0px;
+  display: table;
+}
+.bottomNav > a::after {
+  content: "";
+  margin-top: 0px;
+  display: table;
+}
+.lineBrake {
+  word-break: break-all;
+}/*# sourceMappingURL=roboto.css.map */

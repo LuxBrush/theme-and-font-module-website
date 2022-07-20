@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to use</title>
+    <link id="main" rel="stylesheet" href="/themes/main.css">
+    <link id="theme" rel="stylesheet" href="/themes/dark.css">
+    <link id="font" rel="stylesheet" href="/themes/oswald.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script type="module" src="/scripts/main.js"></script>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <div class="header">
+            <h1 class="demoHeader">How To Use:</h1>
+        </div>
+        <div class="line"></div>
+        <div class="content">
+            <p class="demoSubHeader">
+                Hello and welcome to the how to use page.
+            </p>
+            <p class="demoText">
+                To use this module, a basic understanding of how to use sass/scss is needed. <br />
+                For more information, please visit the <a href="https://sass-lang.com/">sass-lang</a> website.
+            </p>
+            <p class="demoText">
+                Also, this module will work with any modern sass/scss compiler. <br />
+            </p>
+            <p class="exampleText">
+                Note:
+                <span>This will not work with the VS Code extension Live Sass Compiler by Ritwick Dey,
+                    though it will work with the VS Code extension of the same name by Glenn Marks.</span>
+            </p>
+            <p class="demoText">
+                This page will explain how to use the css theme and font generator. <br />
+                There are three components that help you generate the css files for your website.
+            </p>
+            <p class="demoText extraPadding">
+                <b>_styleSheet.scss</b>: This scss file contains the mixin setStyleSheet that sets all the css styles
+                for your
+                website.
+            </p>
+            <p class="demoText extraPadding">
+                <b>_tools.scss</b>: This contains tools for managing different aspects of the css styles.
+            </p>
+            <p class="demoText extraPadding">
+                <b>_common.scss</b>: This contains most of the scss variables that are used in the
+                <b>_styleSheet.scss</b>, <b>_tools.scss</b>, and
+                in your scss files.
+            </p>
+            <p class="demoText extraPadding">
+                The <b>_tools.scss</b> and <b>_common.scss</b> files are used in your scss files by using the
+                <span class="inlineCode"><b>@use 'components'</b></span> code at the start of your file.
+                This will make the scss variables and tools available to you.
+            </p>
+            <div class="line"></div>
+            <div id="subNav" class="subNav">
+                <div class="subNav-header">
+                    <p class="subNav-title">PAGES:</p>
+                </div>
+                <div class="subNav-menu">
+                    <ul class="subNav-list">
+                        <li>
+                            <a href="#page-setup" target="_parent" tabindex="0">
+                                <p class="subNav-item">Setup</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page-styleSheet" tabindex="0">
+                                <p class="subNav-item">_styleSheet.scss</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page-tools" tabindex="0">
+                                <p class="subNav-item">_tools.scss</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page-common" tabindex="0">
+                                <p class="subNav-item">_common.scss</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div id="pages" class="overflowHidden target">
+                <div id="page-setup" class="target">
+                    <p class="demoSubHeader"> Setup: </p>
+                    <p class="demoText">
+                        The first thing you need to determine is what themes and fonts you want to use.
+                        Themes are the colors for your website, fonts are the typefaces of your website.
+                        For each theme and font you would like to use, you need to create a scss file.
+                        Any scss file you create should be placed in the /scss folder.
+                        These files should be named after the theme or font you want to use.
+                    </p>
+                    <p class="exampleText">
+                        Examples:
+                        <span>
+                            If you want to use a dark theme, you would create a scss file named dark.scss.
+                            <br />
+                            If you want to use a font called Oswald, you would create a scss file named
+                            oswald.scss.
+                        </span>
+                    </p>
+
+                    <p class="demoText">
+                        The inside of your scss files would look like this: <br />
+                    </p>
+                    <div class="codeText">
+                        <div>
+                            <b>Example theme File:</b> <br />
+                            <span title="This is how to get access to the setStyleSheet mixin.">
+                                @use 'styleSheet' as *;
+                            </span>
+                            <br />
+                            <span title="This is how to get access to _tools and _common.">
+                                @use 'components' as *;
+                            </span>
+                            <br />
+                            <span title="This ID tells the _styleSheet.scss what type of file this is.">
+                                $fileID: 'theme';
+                            </span>
+                            <br />
+                            <span title="Here for future uses. This is currently not being used.">
+                                $themeID: '<span class="themeID">dark</span>';
+                            </span>
+                            <br />
+                            $primary: '<span class="hexColor">#a1a3ff</span>'; <br />
+                            $primaryVariant: '<span class="hexColor">#5300C7</span>'; <br />
+                            $secondary: '<span class="hexColor">#03DAC6</span>'; <br />
+                            $secondaryVariant: '<span class="hexColor">#008CAC</span>'; <br />
+                            $background: '<span class="hexColor">#121212</span>'; <br />
+                            $surface: '<span class="hexColor">#121212</span>'; <br />
+                            $error: '<span class="hexColor">#CF6679</span>'; <br />
+                            $onPrimary: '<span class="hexColor">#000000</span>'; <br />
+                            $onSecondary: '<span class="hexColor">#000000</span>'; <br />
+                            $onBackground: '<span class="hexColor">#ffffff</span>'; <br />
+                            $onSurface: '<span class="hexColor">#ffffff</span>'; <br />
+                            $onError: '<span class="hexColor">#000000</span>'; <br />
+                            $alphaColor: '<span class="hexColor">#00000000</span>' <br />
+                            @include setStyleSheet();
+                        </div>
+                        <div>
+                            <b>Example font File:</b> <br />
+                            <span title="This is how to get access to the setStyleSheet mixin.">
+                                @use 'styleSheet' as *;
+                            </span>
+                            <br />
+                            <span title="This is how to get access to _tools and _common.">
+                                @use 'components' as *;
+                            </span>
+                            <br />
+                            <span title="This ID tells the setStyleSheet mixin what type of file this is.">
+                                $fileID: 'font';
+                            </span>
+                            <br />
+                            <span title="This ID tells the setFont mixin which font this is.">
+                                $fontID: '<span class="fontNames">Oswald</span>';
+                            </span>
+                            <br />
+                            <span
+                                title="This is the base number that get's scaled by rem's to the correct font size. This will be unique for each font.">
+                                $rootFontSize: <span class="fontSettings">1.238px</span>;
+                            </span>
+                            <br />
+                            <span
+                                title="In some cases the font height needs to be corrected. This is how big the top correction should be. This will be unique for each font.">
+                                $fontTop: <span class="fontSettings">-2px</span>;
+                            </span>
+                            <br />
+                            <span
+                                title="In some cases the font height needs to be corrected. This is how big the bottom correction should be. This will be unique for each font.">
+                                $fontBottom: <span class="fontSettings">2px</span>;
+                            </span>
+                            <br />
+                            <span title="This is for custom indent size. This will be unique for each font.">
+                                $indent: <span class="fontSettings">1.7ch</span>;
+                            </span>
+                            <br />
+                            <span title="This is used to set the gap between lines of text.">
+                                $lineGap: 8px;
+                            </span>
+                            <br />
+                            <span
+                                title="Set this to true if you'ld like to use the clamp function in your font-size and line-height.">
+                                $useClamp: true;
+                            </span>
+                            <br />
+                            <span
+                                title="This sets the reduced size of your font the clamp function. Smaller number, means smaller font.">
+                                $reduction: 0.8;
+                            </span>
+                            <br />
+                            <span
+                                title="This is the view width that you would like your font to start scaling down at.">
+                                $viewWidth: 1280;
+                            </span>
+                            <br />
+                            @include setStyleSheet();
+                        </div>
+                    </div>
+                    <p class="demoText">
+                        If you hover over the code, you can see what each variable is for. <br />
+                    </p>
+                    <p class="demoText">
+                        The code above is an example of a theme file and a font file. <br />
+                        I've used Google's material design color specifications and the <span
+                            class="fontNames">Oswald</span> font for my example. You can
+                        use
+                        any font or color layout you want. You will need to update the variables in the _common.scss
+                        file to
+                        the
+                        new names of the variables.
+                    </p>
+                    <p class="demoText">
+                        For those viewing on mobile who can't see the tooltips above, here is what each variable is for:
+                        <br />
+                    <div class="demoText extraPadding">
+                        <div class="inlineCode"><b>$fileID:</b></div> <br />
+                        This ID tells the setStyleSheet mixin what type of file this is.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <div class="inlineCode"><b>$fontID:</b></div> <br />
+                        This ID tells the setFont mixin which font this is.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <div class="inlineCode"><b>$themeID:</b></div> <br />
+                        Here for future updates. This is currently not being used.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <div class="inlineCode"><b>$rootFontSize:</b></div> <br />
+                        This is the base number that get's scaled by rem's to the correct font size. <br />
+                        This will be unique for each font.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <div class="inlineCode"><b>$fontTop:</b></div> <br />
+                        In some cases the font height needs to be corrected through the _fontHightCorrection mixin. This
+                        tells that mixin how big the top correction should be. This will be unique for each font.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <div class="inlineCode"><b>$fontBottom:</b></div> <br />
+                        In some cases the font height needs to be corrected through the _fontHightCorrection mixin. This
+                        tells that mixin how big the bottom correction should be. This will be unique for each font.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <div class="inlineCode"><b>$indent:</b></div> <br />
+                        This is for custom indent size. This will be unique for each font.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <div class="inlineCode"><b>$lineGap:</b></div> <br />
+                        This is used to set the gap between lines of text.
+                    </div>
+                    <div id="use-clamp" class="demoText extraPadding">
+                        <div class="inlineCode"><b>$useClamp:</b></div> <br />
+                        Set this to true if you'ld like to use the clamp function in your font-size and line-height.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <div class="inlineCode"><b>$reduction:</b></div> <br />
+                        This sets the reduced size of your font in the clamp function. Smaller number, means smaller
+                        font.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <div class="inlineCode"><b>$viewWidth:</b></div> <br />
+                        This is the view width that you would like your font to start scaling down at.
+                    </div>
+                    <p class="demoText">
+                        You'll also need to set up your main.scss file. It will look like this.
+                    </p>
+
+                    <div class="codeText">
+                        <div>
+                            <b>Example main.scss File:</b> <br />
+                            <span title="This is how to get access to the setStyleSheet mixin.">@use 'styleSheet' as
+                                *;</span>
+                            <br />
+                            <span title="This is how to get access to _tools and _common.">@use 'components' as
+                                *;</span>
+                            <br />
+                            <span
+                                title="This ID tells the setStyleSheet mixin what type of file this is.">$fileID</span>:
+                            'main'; <br />
+                            @include setStyleSheet();
+                        </div>
+                    </div>
+
+                    <p class="demoText">
+                        As shown above, you don't need to do much in any of the theme, font, and main scss files.
+                        That is because most of the work is done by the setStyleSheet mixin. This means that once you
+                        set up
+                        your
+                        themes, fonts, and main scss files you won't need to edit them again, unless you are tweaking
+                        your
+                        colors and font scales.
+                    </p>
+                    <div class="demoText bottomNav">
+                        <a class="pageMenu" href="#subNav">Page Menu</a>
+                        <a class="navLinks" href="#page-styleSheet">Next Page</a>
+                    </div>
+                </div>
+                <div id="page-styleSheet" class="target">
+                    <p class="demoSubHeader"> How to use _styleSheet.scss </p>
+                    <p class="demoText">
+                        This is the file that contains the <span class="inlineCode"><b>setStyleSheet()</b></span>&nbsp;
+                        mixin. It's used to set up the layout of the
+                        page.
+                    </p>
+                    <div class="codeText">
+                        <div>
+                            <b>Example _styleSheet.scss File:</b>
+                            <br />
+                            <span title="This is how to get access to _tools and _common.">
+                                @use 'components' as *;
+                            </span>
+                            <br />
+                            <br />
+                            <span title="">
+                                @mixin setStyleSheet() { }
+                            </span>
+                        </div>
+                    </div>
+                    <p class="demoText">
+                        This is the most basic setup for the _styleSheet.scss file.
+                        All of your css styles will be with in the <span
+                            class="inlineCode"><b>setStyleSheet()</b></span>&nbsp; mixin.
+                    </p>
+                    <div class="codeText">
+                        <div>
+                            <b>Example setStyleSheet Mixin:</b> <br />
+                            <span title="">@mixin setStyleSheet() {</span> <br />
+                            <span class="codeIndent"> body { </span> <br />
+                            <span class="codeIndent2">margin: 0; </span> <br />
+                            <span class="codeIndent2">padding: 0;</span> <br />
+                            <span class="codeIndent2">font-family: <span class="fontFamily">'Oswald',
+                                    sans-serif;</span></span>
+                            <br />
+                            <span class="codeIndent2">font-size: 14rem;</span> <br />
+                            <span class="codeIndent2">line-height: 14px;</span> <br />
+                            <span class="codeIndent2">color: <span class="color">#000;</span></span> <br />
+                            <span class="codeIndent2">background-color: <span class="colorBG">#fff;</span></span> <br />
+                            <span class="codeIndent">}</span> <br />
+                            <span title="">}</span>
+                        </div>
+                    </div>
+                    <p class="demoText">
+                        The code above is a basic example of the
+                        <span class="inlineCode"><b>setStyleSheet()</b></span>&nbsp; mixin.
+                        There are additional options that can be used with the mixin.
+                    </p>
+                    <div class="demoText bottomNav">
+                        <a class="navLinks" href="#page-setup">Previous Page</a>
+                        <a class="pageMenu" href="#subNav">Page Menu</a>
+                        <a class="navLinks" href="#page-tools">Next Page</a>
+                    </div>
+                </div>
+                <div id="page-tools" class="target">
+                    <p class="demoSubHeader"> How to use _tools.scss </p>
+                    <p class="demoText">
+                        The tools in this file give you additional options for the
+                        <span class="inlineCode"><b>setStyleSheet()</b></span>&nbsp; mixin.
+                    </p>
+                    <p class="demoText">
+                        Also, some variables are first declared here in the _tools.scss for use in your font scss file.
+                    </p>
+                    <p class="demoText">
+                        <b>These are:</b> <br />
+                    </p>
+                    <p class="demoText extraPadding">
+                        <span class="inlineCode"><b>$fileID</b></span> <br />
+                        <span class="inlineCode"><b>$fontID</b></span> <br />
+                        <span class="inlineCode"><b>$themeID</b></span> <br />
+                        <span class="inlineCode"><b>$rootFontSize</b></span> <br />
+                        <span class="inlineCode"><b>$fontTop</b></span> <br />
+                        <span class="inlineCode"><b>$fontBottom</b></span> <br />
+                        <span class="inlineCode"><b>$indent</b></span> <br />
+                        <span class="inlineCode"><b>$lineGap</b></span> <br />
+                        <span class="inlineCode"><b>$useClamp</b></span> <br />
+                        <span class="inlineCode"><b>$reduction</b></span> <br />
+                        <span class="inlineCode"><b>$viewWidth</b></span> <br />
+                    </p>
+                    <p class="demoText">
+                        If you need to change any of the above variable names or add a variable
+                        for the <span class="inlineCode"><b>setStyle()</b></span>&nbsp; function or the
+                        <span class="inlineCode"><b>setFont()</b></span>&nbsp; mixin you need to change them in the
+                        _tools.scss and the font scss file you have.
+                    </p>
+                    <p class="demoText">
+                        One of the tools is a function called <span class="inlineCode"><b>setStyle()</b></span>&nbsp;.
+                        It's used to set a style property per theme and font file.
+                        It has two parameters. The first is <span class="inlineCode"><b>$file_ID</b></span>&nbsp; and
+                        the second is <span class="inlineCode"><b>$styleProperty.</b></span> <br />
+                        The <span class="inlineCode"><b>$file_ID</b></span>&nbsp; is used to tell the
+                        <span class="inlineCode"><b>setStyle()</b></span>&nbsp; function which file to send the
+                        <span class="inlineCode"><b>$styleProperty</b></span>&nbsp; to. <br />
+                        The <span class="inlineCode"><b>$styleProperty</b></span>&nbsp; is the style property value that
+                        you want to set.
+                    </p>
+                    <div class="codeText">
+                        <div>
+                            <b>Example setStyle():</b> <br />
+                            <span title="">body {</span> <br />
+                            <span class="codeIndent">margin: <b>setStyle</b>('main', 0px);</span> <br />
+                            <span class="codeIndent">padding: <b>setStyle</b>('main', 0px);</span> <br />
+                            <span class="codeIndent">font-family: <b>setStyle</b>('font',
+                                #{<span class="fontFamily">'Oswald', sans-serif</span>});</span> <br />
+                            <span class="codeIndent">font-size: <b>setStyle</b>('font', 14rem);</span> <br />
+                            <span class="codeIndent">line-height: <b>setStyle</b>('font', 14px);</span> <br />
+                            <span class="codeIndent">color: <b>setStyle</b>('theme', <span
+                                    class="color">#333</span>);</span>
+                            <br />
+                            <span class="codeIndent">background-color: <b>setStyle</b>('theme', <span
+                                    class="colorBG">#fff</span>);</span> <br />
+                            <span title="">}</span>
+                        </div>
+                    </div>
+                    <p class="demoText">
+                        The code above is an example of the <span class="inlineCode"><b>setStyle()</b></span>
+                        &nbsp;function.
+                        With this function you can set a style property on any file.
+                    </p>
+                    <p class="demoText">
+                        The next tool is a mixin called <span class="inlineCode"><b>setFont()</b></span>&nbsp;.
+                        It's used to set a group of font properties. It has four parameters, which can have a value or
+                        be
+                        set to null.
+                    </p>
+                    <div class="demoText extraPadding">
+                        <span class="inlineCode"><b>$fontItem</b></span> <br />
+                        Used to set the font-family of a style element and can accept a single font or a
+                        font map.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <span class="inlineCode"><b>$fontWeight</b></span> <br />
+                        Used to set the font-weight of a style element.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <span class="inlineCode"><b>$fontStyle</b></span> <br />
+                        Used to set the font-style of a style element.
+                    </div>
+                    <div class="demoText extraPadding">
+                        <span class="inlineCode"><b>$fontSize</b></span> <br />
+                        Used to set the font-size and line-height of a style element.
+                        The output will either be a clamp function or your input font size. See <span
+                            class="inlineCode"><b><a href="#use-clamp">$useClamp</a></b></span>&nbsp;.
+                    </div>
+                    <div class="codeText">
+                        <div>
+                            <b>Example setFont():</b>
+                            <br />
+                            <br />
+                            <span>
+                                $<span class="fontNames lowercase">oswald</span>:
+                                <span class="fontFamily">'Oswald', sans-serif</span>;
+                            </span>
+                            <br />
+                            <br />
+                            <span>body {</span>
+                            <br />
+                            <span class="codeIndent">margin: <b>setStyle</b>('main', 0px);</span>
+                            <br />
+                            <span class="codeIndent">padding: <b>setStyle</b>('main', 0px);</span>
+                            <br />
+                            <span class="codeIndent">color: <b>setStyle</b>('theme', <span
+                                    class="color">#333</span>);</span>
+                            <br />
+                            <span class="codeIndent">
+                                background-color: <b>setStyle</b>('theme', <span class="colorBG">#fff</span>);
+                            </span>
+                            <br />
+                            <span class="codeIndent">
+                                @include <b>setFont</b>($<span class="fontNames lowercase">oswald</span>, normal,
+                                normal,
+                                14rem);
+                            </span>
+                            <br />
+                            <span title="">}</span>
+                        </div>
+                    </div>
+                    <p class="demoText">
+                        The code above is an example of how to use the <span
+                            class="inlineCode"><b>setFont()</b></span>&nbsp; mixin.
+                    </p>
+                    <div class="demoText bottomNav">
+                        <a class="navLinks" href="#page-styleSheet">Previous Page</a>
+                        <a class="pageMenu" href="#subNav">Page Menu</a>
+                        <a class="navLinks" href="#page-common">Next Page</a>
+                    </div>
+                </div>
+                <div id="page-common" class="target">
+                    <p class="demoSubHeader"> How to use _common.scss </p>
+                    <p class="demoText">
+                        This is where you store your common variables like your font families, font maps, font heights,
+                        and it's where the colors for your themes first get declared.
+                    </p>
+                    <p class="demoText">
+                        Here is an example.
+                    </p>
+                    <div class="codeText">
+                        <div>
+                            <span>$oswald: 'Oswald', sans-serif;</span> <br />
+                            <span>$roboto: 'Roboto', sans-serif;</span> <br />
+                            <span>$fontMap: (</span> <br />
+                            <span class="codeIndent2">Oswald: $oswald,</span> <br />
+                            <span class="codeIndent2">Roboto: $roboto</span> <br />
+                            <span>);</span> <br />
+                            <span>$fsP: 20rem;</span> <br />
+                            <span>$fsA: 20rem;</span> <br />
+                            <span>$fsN: 20rem;</span> <br />
+                            <span>$fsH1: 30rem;</span> <br />
+                            <span>$fsH2: 24rem;</span> <br />
+                            <span>$fsH3: 18rem;</span> <br />
+                            <span>$fsH4: 14rem;</span> <br />
+                            <br />
+                            <span>$primary: #ffffff;</span> <br />
+                            <span>$primaryVariant: #ffffff;</span> <br />
+                            <span>$secondary: #ffffff;</span> <br />
+                            <span>$secondaryVariant: #ffffff;</span> <br />
+                            <span>$background: #ffffff;</span> <br />
+                            <span>$surface: #ffffff;</span> <br />
+                            <span>$error: #ffffff;</span> <br />
+                            <span>$onPrimary: #ffffff;</span> <br />
+                            <span>$onSecondary: #ffffff;</span> <br />
+                            <span>$onBackground: #ffffff;</span> <br />
+                            <span>$onSurface: #ffffff;</span> <br />
+                            <span>$onError: #ffffff;</span> <br />
+                            <span>$alphaColor: #00000000;</span> <br />
+                        </div>
+                    </div>
+                    <p class="demoText">
+                        This code is from the _common.scss for this page.
+                    </p>
+                    <div class="demoText bottomNav">
+                        <a class="navLinks" href="#page-tools">Previous Page</a>
+                        <a class="pageMenu" href="#subNav">Page Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Demo</title>
+    <link id="main" rel="stylesheet" href="/themes/main.css">
+    <link id="theme" rel="stylesheet" href="/themes/dark.css">
+    <link id="font" rel="stylesheet" href="/themes/oswald.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script type="module" src="/scripts/main.js"></script>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <div class="header">
+            <p class="demoHeader">Font Demo</p>
+            <p class="demoText">
+                This page shows several paragraphs set at specific sizes, and a section letting you
+                know what the pixel size is for the font on a mobile device.
+            </p>
+            <p class="demoText">
+                I recommend switching between the two fonts I have in the menu on the right.
+            </p>
+            <p class="demoText">
+                The only difference you should see between the two fonts is how wide they are compared to each other.
+                The heights should be the same.
+            </p>
+            <p class="demoText">
+                Cap size is a measurement that refers to the capital letters within a font.
+            </p>
+        </div>
+        <div class="line"></div>
+        <div class="content">
+            <div class="demo">
+                <p class="demoHeader">Demo of font size</p>
+                <p class="text15px">
+                    The cap size of this paragraph is 15px high +/- 1 pixel in both fonts.
+                </p>
+                <p class="text15px lineBrake">
+                    AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz !@#$%^&*() 0123456789
+                </p>
+                <p class="line"></p>
+                <p class="text20px">
+                    The cap size of this paragraph is 20px high +/- 1 pixel in both fonts.
+                </p>
+                <p class="text20px lineBrake">
+                    AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz !@#$%^&*() 0123456789
+                </p>
+                <p class="line"></p>
+                <p class="text25px">
+                    The cap size of this paragraph is 25px high +/- 1 pixel in both fonts.
+                </p>
+                <p class="text25px lineBrake">
+                    AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz !@#$%^&*() 0123456789
+                </p>
+                <p class="line"></p>
+                <p class="text30px">
+                    The cap size of this paragraph is 30px high +/- 1 pixel in both fonts.
+                </p>
+                <p class="text30px lineBrake">
+                    AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz !@#$%^&*() 0123456789
+                </p>
+            </div>
+            <div class="line"></div>
+            <div class="demo">
+                <p class="demoHeader">This section is for mobile devices.</p>
+                <p class="text20px">
+                    If you take a screen shot of this page on a mobile device this paragraphs cap size will be
+                    <span id="pHeight">20px</span> when measured.
+                </p>
+                <p class="text20px">
+                    This is because of device scaling.
+                    The device you're viewing this page on currently scales
+                    everything on this page by a factor of <span id="DPI">1</span>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

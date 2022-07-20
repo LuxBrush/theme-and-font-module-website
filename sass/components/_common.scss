@@ -1,0 +1,30 @@
+// Your font variables go here.
+$oswald: 'Oswald', sans-serif;
+$roboto: 'Roboto', sans-serif;
+$firaCode: 'Fira Code', monospace;
+$fontMap: (
+    Oswald: $oswald,
+    Roboto: $roboto
+);
+$fsP: 20rem;
+$fsA: 20rem;
+$fsN: 20rem;
+$fsH1: 30rem;
+$fsH2: 24rem;
+$fsH3: 18rem;
+$fsH4: 14rem;
+
+// Fist declaration of color variables for Theme, this will be changed by your themes.
+$primary: #ffffff;
+$primaryVariant: #ffffff;
+$secondary: #ffffff;
+$secondaryVariant: #ffffff;
+$background: #ffffff;
+$surface: #ffffff;
+$error: #ffffff;
+$onPrimary: #ffffff;
+$onSecondary: #ffffff;
+$onBackground: #ffffff;
+$onSurface: #ffffff;
+$onError: #ffffff;
+$alphaColor: #00000000;

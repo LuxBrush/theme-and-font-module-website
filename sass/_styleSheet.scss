@@ -1,0 +1,637 @@
+@use 'components' as *;
+
+@mixin setStyleSheet() {
+    :root {
+        font-size: setStyle('font', $rootFontSize);
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: setStyle('main', border-box);
+    }
+
+    body {
+        position: setStyle('main', relative);
+        display: setStyle('main', grid);
+        place-items: setStyle('main', center);
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 0px);
+        height: setStyle('main', 100%);
+        color: setStyle('theme', $onBackground);
+        background-color: setStyle('theme', $background);
+
+        @include setFont($fontMap, normal, normal, null);
+    }
+
+    p {
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 0px);
+        font-size: setStyle('font', $fsP);
+    }
+
+    button {
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 0px);
+        border: setStyle('main', none);
+        cursor: setStyle('main', pointer);
+        @include setFont($fontMap, null, null, null);
+    }
+
+    a {
+        color: setStyle('theme', $onPrimary);
+        text-decoration: setStyle('font', none);
+
+        &:hover,
+        &:focus {
+            color: setStyle('theme', $primaryVariant);
+        }
+    }
+
+    ul {
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 0px);
+        list-style: setStyle('main', none);
+    }
+
+    .container {
+        position: setStyle('main', relative);
+        text-align: setStyle('main', left);
+        margin: setStyle('main', 0px 0px 0px 0px);
+        padding: setStyle('main', 55px 15px 15px 15px);
+        max-width: setStyle('main', 900px);
+        color: setStyle('theme', $onPrimary);
+        background-color: setStyle('theme', $background);
+        border-radius: setStyle('main', 0px);
+    }
+
+    @media screen and (min-width: 700px) {
+        .container {
+            margin: setStyle('main', 68px 20px 20px 20px);
+            padding: setStyle('main', 15px);
+            color: setStyle('theme', $onPrimary);
+            background-color: setStyle('theme', $primary);
+            border-radius: setStyle('main', 25px);
+        }
+    }
+
+    .line {
+        margin: setStyle('main', 5px 0px);
+        padding: setStyle('main', 0px);
+        border-bottom: setStyle('theme', 2px solid $onPrimary);
+    }
+
+    @media screen and (min-width: 700px) {
+        #pages {
+            display: setStyle('main', grid);
+            grid-auto-flow: setStyle('main', column);
+            grid-auto-columns: setStyle('main', 100%);
+            column-gap: setStyle('main', 16px);
+        }
+
+        $targetH: 63px;
+
+        .target {
+            position: setStyle('main', relative);
+            top: setStyle('main', $targetH * -1);
+            padding-top: setStyle('main', $targetH);
+        }
+    }
+
+    .demoHeader {
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 5px);
+        color: setStyle('theme', $onPrimary);
+        @include setFont(null, bold, normal, $fsH1);
+    }
+
+    .demoSubHeader {
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 5px);
+        color: setStyle('theme', $onPrimary);
+        @include setFont(null, bold, normal, $fsH2);
+    }
+
+    .demoText {
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 5px);
+        color: setStyle('theme', $onPrimary);
+        @include setFont(null, normal, normal, $fsP);
+
+        & a {
+            text-decoration: setStyle('font', underline);
+        }
+    }
+
+    .exampleText {
+        display: setStyle('main', grid);
+        grid-auto-flow: setStyle('main', row);
+        place-items: setStyle('main', center);
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 5px);
+        border-radius: setStyle('main', 10px);
+        background-color: setStyle('theme', $primary);
+        @include setFont(null, bold, italic, $fsP);
+
+        & span {
+            display: setStyle('main', inline-block);
+            padding: setStyle('main', 5px 0px 0px 0px);
+            text-align: setStyle('font', center);
+            @include setFont(null, normal, italic, $fsP);
+        }
+    }
+
+    @media screen and (min-width: 700px) {
+        .exampleText {
+            grid-auto-flow: setStyle('main', column);
+            padding: setStyle('main', 5px 5px 5px 15px);
+            background-color: setStyle('theme', $background);
+
+            & span {
+                padding: setStyle('main', 0px 0px 0px 20px);
+                text-align: setStyle('font', left);
+            }
+        }
+    }
+
+    .codeText {
+        display: setStyle('main', grid);
+        grid-auto-flow: setStyle('main', row);
+        gap: setStyle('main', 15px);
+        font-size: setStyle('font', 1.4px);
+        justify-items: setStyle('main', center);
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 10px);
+        border-radius: setStyle('main', 15px);
+        color: setStyle('theme', $onPrimary);
+        background-color: setStyle('theme', $primary);
+
+        & div {
+            font-family: setStyle('font', $firaCode);
+            font-size: setStyle('font', clamp(12em, 2.001vw, 16em));
+            line-height: setStyle('font', clamp(18px, 2.189vw, 28px));
+        }
+
+        & b {
+            text-decoration: setStyle('theme', underline);
+        }
+    }
+
+    @media screen and (min-width: 700px) {
+        .codeText {
+            grid-auto-flow: setStyle('main', column);
+            grid-auto-columns: setStyle('main', 1fr);
+            gap: setStyle('main', 0px);
+            padding: setStyle('main', 10px 5px);
+            background-color: setStyle('theme', $background);
+        }
+    }
+
+    .inlineCode {
+        font-family: setStyle('font', $firaCode);
+        display: setStyle('main', inline-block);
+        font-size: setStyle('font', 1.4px);
+        margin-bottom: setStyle('main', -11px);
+        margin-right: setStyle('main', clamp(-7px, -0.547vw, -4px));
+
+        & b,
+        span {
+            font-size: setStyle('font', clamp(16em, 2.501vw, 20em));
+        }
+    }
+
+    .demoList {
+        display: setStyle('main', grid);
+        row-gap: setStyle('main', 10px);
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 0px 5px);
+        color: setStyle('theme', $onPrimary);
+
+        & li {
+            margin: setStyle('main', 0px);
+            padding: setStyle('main', 0px);
+            color: setStyle('theme', $onPrimary);
+            @include setFont(null, normal, normal, $fsP);
+        }
+    }
+
+    .nav {
+        display: setStyle('main', grid);
+        position: setStyle('main', fixed);
+        bottom: setStyle('main', 0px);
+        grid-auto-flow: setStyle('main', column);
+        grid-template-rows: setStyle('main', 1fr);
+        margin: setStyle('main', 0px);
+        width: setStyle('main', 100%);
+        padding: setStyle('main', 5px);
+        text-align: setStyle('font', center);
+        border-top: setStyle('theme', 2px solid $onPrimary);
+        border-radius: setStyle('main', 0px);
+        color: setStyle('theme', $onPrimary);
+        background-color: setStyle('theme', $primary);
+
+        &-header {
+            display: setStyle('main', none);
+        }
+
+        &-title {
+            padding: setStyle('main', 5px);
+            color: setStyle('theme', $onPrimary);
+
+            @include setFont(null, bold, normal, $fsN);
+        }
+
+        &-list {
+            display: setStyle('main', grid);
+            grid-auto-flow: setStyle('main', column);
+            place-items: setStyle('main', center);
+            grid-template-rows: setStyle('main', 1fr 1fr);
+            gap: setStyle('main', 5px);
+            padding: setStyle('main', 0px 0px 30px 0px);
+        }
+
+        &-list a {
+            width: setStyle('main', 100%);
+        }
+
+        &-item {
+            border-radius: setStyle('main', 10px);
+            padding: setStyle('main', 5px);
+            color: setStyle('theme', $onPrimary);
+            background-color: setStyle('theme', $surface);
+
+            @include setFont(null, normal, normal, $fsH2);
+
+            &:focus,
+            &:hover {
+                color: setStyle('theme', $secondaryVariant);
+            }
+        }
+    }
+
+    @media screen and (min-width: 700px) {
+        .nav {
+            display: setStyle('main', flex);
+            position: setStyle('main', absolute);
+            top: setStyle('main', 10px);
+            width: setStyle('main', auto);
+            height: setStyle('main', min-content);
+            border-style: setStyle('theme', none);
+            border-radius: setStyle('main', 10px);
+
+            &-header {
+                display: setStyle('main', block);
+            }
+
+            &-list {
+                grid-template-rows: setStyle('main', 1fr);
+                gap: setStyle('main', 0px);
+                padding: setStyle('main', 0px 0px 0px 0px);
+            }
+
+            &-item {
+                background-color: setStyle('theme', $alphaColor);
+                @include setFont(null, normal, normal, $fsN);
+            }
+        }
+    }
+
+    .subNav {
+        display: setStyle('main', grid);
+        grid-auto-flow: setStyle('main', column);
+        place-items: setStyle('main', center);
+        max-width: setStyle('main', 100px);
+        gap: setStyle('main', 10px);
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 5px);
+        color: setStyle('theme', $onPrimary);
+
+        &-title {
+            font-weight: setStyle('font', bold);
+        }
+
+        &-list {
+            display: setStyle('main', grid);
+            grid-auto-flow: setStyle('main', row);
+            gap: setStyle('main', 10px);
+        }
+
+        &-item {
+            border-radius: setStyle('main', 10px);
+            padding: setStyle('main', 2px 10px);
+            background-color: setStyle('theme', $surface);
+            color: setStyle('theme', $onPrimary);
+
+            &:focus,
+            &:hover {
+                color: setStyle('theme', $background);
+            }
+        }
+    }
+
+    @media screen and (min-width: 700px) {
+        .subNav {
+            position: setStyle('main', relative);
+            z-index: setStyle('main', 100);
+
+            &-list {
+                grid-auto-flow: setStyle('main', column);
+            }
+        }
+    }
+
+    .subNav-header {
+        display: setStyle('main', none);
+    }
+
+    @media screen and (min-width: 700px) {
+        .subNav-header {
+            display: setStyle('main', block);
+        }
+    }
+
+    .menu,
+    #menuItems {
+        display: setStyle('main', grid);
+        grid-auto-flow: setStyle('main', row);
+        place-items: setStyle('main', center);
+        row-gap: setStyle('main', 5px);
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 0px);
+    }
+
+    .menu {
+        position: setStyle('main', fixed);
+        top: setStyle('main', 10px);
+        right: setStyle('main', 10px);
+    }
+
+    #menuItems {
+        display: setStyle('main', none);
+    }
+
+    .menuButton {
+        border-radius: setStyle('main', 10px);
+        padding: setStyle('main', 5px 10px);
+        color: setStyle('theme', $onPrimary);
+        background-color: setStyle('theme', $primary);
+        border: setStyle('theme', 2px solid $onBackground);
+        @include setFont($fontMap, bold, normal, $fsH2);
+        transition: setStyle('main', background-color ease-in-out 0.2s);
+
+        &:focus,
+        &:hover {
+            color: setStyle('theme', $onSurface);
+            background-color: setStyle('theme', $surface);
+        }
+    }
+
+    .themeMenu {
+        display: setStyle('main', grid);
+        padding: setStyle('main', 0px 10px);
+        width: setStyle('main', min-content);
+        height: setStyle('main', min-content);
+        border-radius: setStyle('main', 15px);
+        border: setStyle('theme', 2px solid $onPrimary);
+        color: setStyle('theme', $onPrimary);
+        background-color: setStyle('theme', $primary);
+
+        & h2 {
+            margin: setStyle('main', 0px);
+            padding: setStyle('main', 5px 0px);
+            color: setStyle('theme', $onPrimary);
+            @include setFont(null, bold, normal, $fsH2);
+        }
+
+        & button {
+            margin: setStyle('main', 0px);
+            padding: setStyle('main', 2px 0px);
+            color: setStyle('theme', $onPrimary);
+            background-color: setStyle('theme', $alphaColor);
+            text-transform: setStyle('font', capitalize);
+            @include setFont(null, normal, normal, $fsP);
+
+            &:focus,
+            &:hover {
+                color: setStyle('theme', $secondaryVariant);
+            }
+        }
+    }
+
+    .fontMenu {
+        display: setStyle('main', grid);
+        padding: setStyle('main', 2px 10px);
+        color: setStyle('theme', $onPrimary);
+        background-color: setStyle('theme', $primary);
+        border-radius: setStyle('main', 15px);
+        border: setStyle('theme', 2px solid $onPrimary);
+        width: setStyle('main', fit-content);
+        height: setStyle('main', fit-content);
+
+        & h2 {
+            margin: setStyle('main', 0px);
+            padding: setStyle('main', 5px 0px);
+            color: setStyle('theme', $onPrimary);
+            @include setFont(null, bold, normal, $fsH2);
+        }
+
+        & button {
+            // margin: setStyle('main', 0px);
+            padding: setStyle('main', 2px 0px);
+            color: setStyle('theme', $onPrimary);
+            background-color: setStyle('theme', $alphaColor);
+            text-transform: setStyle('font', capitalize);
+            @include setFont(null, normal, normal, $fsP);
+
+            &:focus,
+            &:hover {
+                color: setStyle('theme', $secondaryVariant);
+            }
+        }
+    }
+
+    .text15px {
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 5px);
+        color: setStyle('theme', $onPrimary);
+        font-size: setStyle('font', 15rem);
+    }
+
+    .text20px {
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 5px);
+        color: setStyle('theme', $onPrimary);
+        font-size: setStyle('font', 20rem);
+    }
+
+    .text25px {
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 5px);
+        color: setStyle('theme', $onPrimary);
+        font-size: setStyle('font', 25rem);
+    }
+
+    .text30px {
+        margin: setStyle('main', 0px);
+        padding: setStyle('main', 5px);
+        color: setStyle('theme', $onPrimary);
+        font-size: setStyle('font', 30rem);
+    }
+
+    .indent {
+        padding-left: setStyle('font', $indent);
+    }
+
+    .indent2 {
+        padding-left: setStyle('font', $indent * 2);
+    }
+
+    $codeIndent: 2ch;
+
+    .codeIndent {
+        padding-left: setStyle('font', $codeIndent);
+    }
+
+    .codeIndent2 {
+        padding-left: setStyle('font', $codeIndent * 2);
+    }
+
+    .extraPadding {
+        padding: setStyle('main', 10px 15px);
+    }
+
+    .lowercase {
+        text-transform: setStyle('font', lowercase);
+    }
+
+    .uppercase {
+        text-transform: setStyle('font', uppercase);
+    }
+
+    .setOutline {
+        $width: 10px;
+        $color: $background;
+        -webkit-text-stroke: setStyle('theme', $width $color);
+    }
+
+    .stack {
+        position: setStyle('main', absolute);
+        padding-right: setStyle('main', 15px);
+    }
+
+    .unSelect {
+        user-select: setStyle('main', none);
+    }
+
+    .overflowHidden {
+        overflow-x: setStyle('main', hidden);
+    }
+
+    
+
+    @media screen and (min-width: 700px) {
+        .bottomNav {
+            padding: setStyle('main', 15px 5px 5px 5px);
+        }
+    }
+
+    .bottomNav>a {
+        border-radius: setStyle('main', 10px);
+        padding: setStyle('main', 4px 10px);
+        background-color: setStyle('theme', $surface);
+        @include setFont(null, null, null, $fsP);
+
+        &:focus,
+        &:hover {
+            color: setStyle('theme', $background);
+        }
+    }
+
+    .pageMenu {
+        display: setStyle('main', inline-block);
+    }
+
+    .navLinks {
+        display: setStyle('main', none);
+    }
+
+    @media screen and (min-width: 700px) {
+        .navLinks {
+            display: setStyle('main', inline-block);
+        }
+    }
+
+    .lineBrake {
+        word-break: setStyle('font', break-all);
+    }
+
+    .pos {
+        position: setStyle('main', relative);
+    }
+
+    .--color {
+        position: setStyle('main', absolute);
+        top: setStyle('main', 0px);
+        right: setStyle('main', 15%);
+        display: setStyle('main', inline-block);
+        border: setStyle('main', 2px);
+        border-style: setStyle('main', solid);
+        border-color: setStyle('theme', $onPrimary);
+        width: setStyle('main', 30px);
+        height: setStyle('main', 30px);
+    }
+
+    @media screen and (min-width: 700px) {
+        .--color {
+            right: setStyle('main', clamp(65%, 1vw, 70%));
+        }
+    }
+
+    .primary {
+        background-color: setStyle('theme', $primary);
+    }
+
+    .primaryVariant {
+        background-color: setStyle('theme', $primaryVariant);
+    }
+
+    .secondary {
+        background-color: setStyle('theme', $secondary);
+    }
+
+    .secondaryVariant {
+        background-color: setStyle('theme', $secondaryVariant);
+    }
+
+    .background {
+        background-color: setStyle('theme', $background);
+    }
+
+    .surface {
+        background-color: setStyle('theme', $surface);
+    }
+
+    .error {
+        background-color: setStyle('theme', $error);
+    }
+
+    .onPrimary {
+        background-color: setStyle('theme', $onPrimary);
+    }
+
+    .onSecondary {
+        background-color: setStyle('theme', $onSecondary);
+    }
+
+    .onBackground {
+        background-color: setStyle('theme', $onBackground);
+    }
+
+    .onSurface {
+        background-color: setStyle('theme', $onSurface);
+    }
+
+    .onError {
+        background-color: setStyle('theme', $onError);
+    }
+}

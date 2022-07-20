@@ -1,0 +1,397 @@
+/*
+ Fist declaration of Font variables, this will be changed by your Font files.
+ The $rootFontSize is used for scaling fonts.
+ Once this is set for a font you can then use rems in your SCSS to get the desired font size.
+ Example: With $rootFontSize set to 1.238px for the Oswald font,
+ and an rem of 30 for the font size you end up with a font size 30px on your screen.
+*/
+/* 
+ The function setStyle will set the value of the css style in the file based on the $fileID.
+ Example:
+ body {
+   display: setStyle('main', grid);
+   place-items: setStyle('main', center);
+   margin: setStyle('main', 0px);
+   padding: setStyle('main', 0px);
+   height: setStyle('main', 100%);
+   color: setStyle('theme', $onBackground);
+   background-color: setStyle('theme', $background);
+   @include setFont($fontMap, normal, normal, null);
+ }
+*/
+/* 
+ This mixin is used to set the font family, weight, style, and size
+ of an style element.
+
+ @param $fontItem   - Used to set the font-family of a style element
+                      and can accept a single font or a font map.
+ @param $fontWeight - Used to set the font-weight of a style element.
+ @param $fontStyle  - Used to set the font-style of a style element.
+ @param $fontSize   - Used to set the font-size and line-height of a style element.
+                      The output will either be a clamp function or your input font size.
+ */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.container {
+  position: relative;
+  text-align: left;
+  margin: 0px 0px 0px 0px;
+  padding: 55px 15px 15px 15px;
+  max-width: 900px;
+  border-radius: 0px;
+}
+
+@media screen and (min-width: 700px) {
+  .container {
+    margin: 68px 20px 20px 20px;
+    padding: 15px;
+    border-radius: 25px;
+  }
+}
+.line {
+  margin: 5px 0px;
+  padding: 0px;
+}
+
+@media screen and (min-width: 700px) {
+  #pages {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    -moz-column-gap: 16px;
+         column-gap: 16px;
+  }
+  .target {
+    position: relative;
+    top: -63px;
+    padding-top: 63px;
+  }
+}
+.demoHeader {
+  margin: 0px;
+  padding: 5px;
+}
+.demoSubHeader {
+  margin: 0px;
+  padding: 5px;
+}
+.demoText {
+  margin: 0px;
+  padding: 5px;
+}
+.exampleText {
+  display: grid;
+  grid-auto-flow: row;
+  place-items: center;
+  margin: 0px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.exampleText span {
+  display: inline-block;
+  padding: 5px 0px 0px 0px;
+}
+@media screen and (min-width: 700px) {
+  .exampleText {
+    grid-auto-flow: column;
+    padding: 5px 5px 5px 15px;
+  }
+  .exampleText span {
+    padding: 0px 0px 0px 20px;
+  }
+}
+.codeText {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 15px;
+  justify-items: center;
+  margin: 0px;
+  padding: 10px;
+  border-radius: 15px;
+}
+@media screen and (min-width: 700px) {
+  .codeText {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 0px;
+    padding: 10px 5px;
+  }
+}
+.inlineCode {
+  display: inline-block;
+  margin-bottom: -11px;
+  margin-right: clamp(-7px, -0.547vw, -4px);
+}
+.demoList {
+  display: grid;
+  row-gap: 10px;
+  margin: 0px;
+  padding: 0px 5px;
+}
+.demoList li {
+  margin: 0px;
+  padding: 0px;
+}
+.nav {
+  display: grid;
+  position: fixed;
+  bottom: 0px;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr;
+  margin: 0px;
+  width: 100%;
+  padding: 5px;
+  border-radius: 0px;
+}
+.nav-header {
+  display: none;
+}
+.nav-title {
+  padding: 5px;
+}
+.nav-list {
+  display: grid;
+  grid-auto-flow: column;
+  place-items: center;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  padding: 0px 0px 30px 0px;
+}
+.nav-list a {
+  width: 100%;
+}
+.nav-item {
+  border-radius: 10px;
+  padding: 5px;
+}
+@media screen and (min-width: 700px) {
+  .nav {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    width: auto;
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content;
+    border-radius: 10px;
+  }
+  .nav-header {
+    display: block;
+  }
+  .nav-list {
+    grid-template-rows: 1fr;
+    gap: 0px;
+    padding: 0px 0px 0px 0px;
+  }
+}
+.subNav {
+  display: grid;
+  grid-auto-flow: column;
+  place-items: center;
+  max-width: 100px;
+  gap: 10px;
+  margin: 0px;
+  padding: 5px;
+}
+.subNav-list {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 10px;
+}
+.subNav-item {
+  border-radius: 10px;
+  padding: 2px 10px;
+}
+@media screen and (min-width: 700px) {
+  .subNav {
+    position: relative;
+    z-index: 100;
+  }
+  .subNav-list {
+    grid-auto-flow: column;
+  }
+}
+.subNav-header {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .subNav-header {
+    display: block;
+  }
+}
+.menu,
+#menuItems {
+  display: grid;
+  grid-auto-flow: row;
+  place-items: center;
+  row-gap: 5px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.menu {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+#menuItems {
+  display: none;
+}
+
+.menuButton {
+  border-radius: 10px;
+  padding: 5px 10px;
+  transition: background-color ease-in-out 0.2s;
+}
+.themeMenu {
+  display: grid;
+  padding: 0px 10px;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  border-radius: 15px;
+}
+.themeMenu h2 {
+  margin: 0px;
+  padding: 5px 0px;
+}
+.themeMenu button {
+  margin: 0px;
+  padding: 2px 0px;
+}
+.fontMenu {
+  display: grid;
+  padding: 2px 10px;
+  border-radius: 15px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.fontMenu h2 {
+  margin: 0px;
+  padding: 5px 0px;
+}
+.fontMenu button {
+  padding: 2px 0px;
+}
+.text15px {
+  margin: 0px;
+  padding: 5px;
+}
+
+.text20px {
+  margin: 0px;
+  padding: 5px;
+}
+
+.text25px {
+  margin: 0px;
+  padding: 5px;
+}
+
+.text30px {
+  margin: 0px;
+  padding: 5px;
+}
+
+.extraPadding {
+  padding: 10px 15px;
+}
+
+.stack {
+  position: absolute;
+  padding-right: 15px;
+}
+
+.unSelect {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.overflowHidden {
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 700px) {
+  .bottomNav {
+    padding: 15px 5px 5px 5px;
+  }
+}
+.bottomNav > a {
+  border-radius: 10px;
+  padding: 4px 10px;
+}
+.pageMenu {
+  display: inline-block;
+}
+
+.navLinks {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .navLinks {
+    display: inline-block;
+  }
+}
+.pos {
+  position: relative;
+}
+
+.--color {
+  position: absolute;
+  top: 0px;
+  right: 15%;
+  display: inline-block;
+  border: 2px;
+  border-style: solid;
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (min-width: 700px) {
+  .--color {
+    right: clamp(65%, 1vw, 70%);
+  }
+}/*# sourceMappingURL=main.css.map */
