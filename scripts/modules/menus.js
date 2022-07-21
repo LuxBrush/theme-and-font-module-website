@@ -24,7 +24,7 @@ export class menuObject {
                         addClassList(p, info.class);
                     }
                     link.appendChild(p);
-                    menu.ul.appendChild(link);
+                    menu.li.appendChild(link);
                     break;
 
                 case 'button':
@@ -91,6 +91,7 @@ export class menuObject {
             Object.keys(type.info.menuItems).forEach(key => {
                 type.menu.li = create('li');
                 this.#itemType(type.info.menuItems[key], type.menu);
+                type.menu.ul.appendChild(type.menu.li);
             });
         } else {
             console.error('Container object is missing menuItems.');
