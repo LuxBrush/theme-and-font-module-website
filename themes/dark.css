@@ -1,35 +1,3 @@
-/*
- Fist declaration of Font variables, this will be changed by your Font files.
- The $rootFontSize is used for scaling fonts.
- Once this is set for a font you can then use rems in your SCSS to get the desired font size.
- Example: With $rootFontSize set to 1.238px for the Oswald font,
- and an rem of 30 for the font size you end up with a font size 30px on your screen.
-*/
-/* 
- The function setStyle will set the value of the css style in the file based on the $fileID.
- Example:
- body {
-   display: setStyle('main', grid);
-   place-items: setStyle('main', center);
-   margin: setStyle('main', 0px);
-   padding: setStyle('main', 0px);
-   height: setStyle('main', 100%);
-   color: setStyle('theme', $onBackground);
-   background-color: setStyle('theme', $background);
-   @include setFont($fontMap, normal, normal, null);
- }
-*/
-/* 
- This mixin is used to set the font family, weight, style, and size
- of an style element.
-
- @param $fontItem   - Used to set the font-family of a style element
-                      and can accept a single font or a font map.
- @param $fontWeight - Used to set the font-weight of a style element.
- @param $fontStyle  - Used to set the font-style of a style element.
- @param $fontSize   - Used to set the font-size and line-height of a style element.
-                      The output will either be a clamp function or your input font size.
- */
 body {
   color: #ffffff;
   background-color: #010003;
