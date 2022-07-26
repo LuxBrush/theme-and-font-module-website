@@ -1,4 +1,4 @@
-# Css static theme & font manager / generator
+# Css static theme & font manager / generator SCSS module
 
 Hello and welcome to this demo of my css static theme & font generator.
 
