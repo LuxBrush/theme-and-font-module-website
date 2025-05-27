@@ -8,12 +8,44 @@ $fontID: ''; // The name of your font
 $themeID: ''; // The name of your theme. Here for future updates. This is currently not being used.
 
 // Fist declaration of Font variables, this will be changed by your Font files.
-// The $rootFontSize is used for scaling fonts.
-// Once this is set for a font you can then use rems in your SCSS to get the desired font size.
-// Example: With $rootFontSize set to 1.238px for the Oswald font,
-// and an rem of 30 for the font size you end up with a font size 30px on your screen.
 
-$rootFontSize: 1px; 
+// --- Font Scaling System Explanation ---
+// This project employs a specific strategy for font scaling to achieve consistent
+// visual cap heights across different fonts. Here's how it works:
+//
+// 1. `$rootFontSize`: Defined in individual font files (e.g., `oswald.scss`, `roboto.scss`).
+//    This variable (e.g., `1.238px` for Oswald) acts as a pixel-based multiplier.
+//
+// 2. `rem` Units: Font sizes in `_common.scss` (like `$fsP: 20rem;`) use `rem` units.
+//    These `rem` values are NOT relative to the browser's default root font-size.
+//    Instead, they are scaled by the font-specific `$rootFontSize`.
+//    For example, with `$fsP: 20rem` and `$rootFontSize: 1.238px`, the calculated
+//    size for elements using `$fsP` with the Oswald font active would be `20 * 1.238px = 24.76px`.
+//
+// 3. `:root` Styling: The `_styleSheet.scss` contains `:root { font-size: setStyle('font', $rootFontSize); }`.
+//    Due to the `setStyle('font', ...)` function, this CSS rule is ONLY included in the
+//    compiled font-specific CSS files (e.g., `themes/oswald.css`). It sets the root
+//    font size for the calculations within those specific font stylesheets.
+//    `main.css` and `theme.css` will not contain this `:root` font-size declaration from here.
+//
+// 4. Goal: The primary objective is to ensure that, for example, text intended to have
+//    a 20px cap height appears consistently as 20px high, regardless of the chosen font
+//    (Oswald or Roboto). The `$rootFontSize` for each font is calibrated to achieve this.
+//
+// 5. `clamp()`: If `$useClamp` is true, font sizes can also be responsive using `clamp()`,
+//    scaling between a minimum size (`$inputFontSize * $reduction`) and the `$inputFontSize`,
+//    relative to `$viewWidth`. The `rem` units within `clamp()` are also subject to the
+//    `$rootFontSize` scaling.
+//
+// This system provides fine-grained control over font appearance but differs from
+// the conventional understanding of `rem` units being solely tied to the global
+// `html` element's font-size.
+// --- End of Font Scaling System Explanation ---
+
+$rootFontSize: 1px; // The $rootFontSize is used for scaling fonts.
+                     // Once this is set for a font you can then use rems in your SCSS to get the desired font size.
+                     // Example: With $rootFontSize set to 1.238px for the Oswald font,
+                     // and an rem of 30 for the font size you end up with a font size 30px on your screen.
 $fontTop: 0; // The top position of your font.
 $fontBottom: 0; // The bottom position of your font.
 $indent: 1ch; // The indentation of your font.

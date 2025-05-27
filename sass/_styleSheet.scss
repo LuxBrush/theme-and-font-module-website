@@ -28,6 +28,7 @@
         margin: setStyle('main', 0px);
         padding: setStyle('main', 0px);
         font-size: setStyle('font', $fsP);
+        margin-bottom: setStyle('main', 1em);
     }
 
     button {
@@ -41,6 +42,7 @@
     a {
         color: setStyle('theme', $onPrimary);
         text-decoration: setStyle('font', none);
+        transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
         &:hover,
         &:focus {
@@ -72,11 +74,12 @@
             color: setStyle('theme', $onPrimary);
             background-color: setStyle('theme', $primary);
             border-radius: setStyle('main', 25px);
+            box-shadow: setStyle('main', 0 4px 12px rgba(0, 0, 0, 0.12));
         }
     }
 
     .line {
-        margin: setStyle('main', 5px 0px);
+        margin: setStyle('main', 16px 0px);
         padding: setStyle('main', 0px);
         border-bottom: setStyle('theme', 2px solid $onPrimary);
     }
@@ -100,23 +103,28 @@
 
     .demoHeader {
         margin: setStyle('main', 0px);
-        padding: setStyle('main', 5px);
+        padding: setStyle('main', 8px 0);
         color: setStyle('theme', $onPrimary);
         @include setFont(null, bold, normal, $fsH1);
+        margin-top: setStyle('main', 24px);
+        margin-bottom: setStyle('main', 12px);
     }
 
     .demoSubHeader {
         margin: setStyle('main', 0px);
-        padding: setStyle('main', 5px);
+        padding: setStyle('main', 6px 0);
         color: setStyle('theme', $onPrimary);
         @include setFont(null, bold, normal, $fsH2);
+        margin-top: setStyle('main', 20px);
+        margin-bottom: setStyle('main', 10px);
     }
 
     .demoText {
         margin: setStyle('main', 0px);
-        padding: setStyle('main', 5px);
+        padding: setStyle('main', 8px);
         color: setStyle('theme', $onPrimary);
         @include setFont(null, normal, normal, $fsP);
+        margin-bottom: setStyle('main', 16px);
 
         & a {
             text-decoration: setStyle('font', underline);
@@ -127,8 +135,8 @@
         display: setStyle('main', grid);
         grid-auto-flow: setStyle('main', row);
         place-items: setStyle('main', center);
-        margin: setStyle('main', 0px);
-        padding: setStyle('main', 5px);
+        margin: setStyle('main', 16px 0);
+        padding: setStyle('main', 12px);
         border-radius: setStyle('main', 10px);
         background-color: setStyle('theme', $primary);
         @include setFont(null, bold, italic, $fsP);
@@ -160,8 +168,8 @@
         gap: setStyle('main', 15px);
         font-size: setStyle('font', 1.4px);
         justify-items: setStyle('main', center);
-        margin: setStyle('main', 0px);
-        padding: setStyle('main', 10px);
+        margin: setStyle('main', 16px 0);
+        padding: setStyle('main', 16px);
         border-radius: setStyle('main', 15px);
         color: setStyle('theme', $onPrimary);
         background-color: setStyle('theme', $primary);
@@ -247,7 +255,7 @@
             place-items: setStyle('main', center);
             grid-template-rows: setStyle('main', 1fr 1fr);
             gap: setStyle('main', 5px);
-            padding: setStyle('main', 0px 0px 30px 0px);
+            padding: setStyle('main', 0px 0px 15px 0px);
         }
 
         &-list a {
@@ -259,6 +267,7 @@
             padding: setStyle('main', 5px);
             color: setStyle('theme', $onPrimary);
             background-color: setStyle('theme', $surface);
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
             @include setFont(null, normal, normal, $fsH2);
 
@@ -321,10 +330,11 @@
             padding: setStyle('main', 2px 10px);
             background-color: setStyle('theme', $surface);
             color: setStyle('theme', $onPrimary);
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
             &:focus,
             &:hover {
-                color: setStyle('theme', $background);
+                color: setStyle('theme', $secondaryVariant);
             }
         }
     }
@@ -410,6 +420,7 @@
             background-color: setStyle('theme', $alphaColor);
             text-transform: setStyle('font', capitalize);
             @include setFont(null, normal, normal, $fsP);
+            transition: color 0.2s ease-in-out;
 
             &:focus,
             &:hover {
@@ -442,6 +453,7 @@
             background-color: setStyle('theme', $alphaColor);
             text-transform: setStyle('font', capitalize);
             @include setFont(null, normal, normal, $fsP);
+            transition: color 0.2s ease-in-out;
 
             &:focus,
             &:hover {
@@ -540,10 +552,11 @@
         padding: setStyle('main', 4px 10px);
         background-color: setStyle('theme', $surface);
         @include setFont(null, null, null, $fsP);
+        transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
         &:focus,
         &:hover {
-            color: setStyle('theme', $background);
+            color: setStyle('theme', $onSurface);
         }
     }
 

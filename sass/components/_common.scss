@@ -6,6 +6,13 @@ $fontMap: (
     Oswald: $oswald,
     Roboto: $roboto
 );
+
+// Font Size Variables
+// These variables use `rem` units. Note that these `rem`s are scaled by a
+// font-specific `$rootFontSize` defined in files like `oswald.scss` or `roboto.scss`
+// to achieve consistent visual cap heights.
+// For a detailed explanation of the font scaling system, please refer to
+// the comments in `sass/components/_tools.scss`.
 $fsP: 20rem;
 $fsA: 20rem;
 $fsN: 20rem;

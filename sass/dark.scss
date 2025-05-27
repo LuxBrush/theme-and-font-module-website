@@ -10,9 +10,9 @@ $background: #010003;
 $surface: #0076ac;
 $error: #BF3207;
 $onPrimary: #ffffff;
-$onSecondary: #ffffff;
+$onSecondary: #ffffff; // ACCESSIBILITY CHECK: HIGH RISK! Review contrast of $onSecondary (#ffffff) on $secondary (#546e7a). White on this blueish-grey likely fails 4.5:1. Consider a much darker $secondary color or black text if $secondary must be this light.
 $onBackground: #ffffff;
 $onSurface: #ffffff;
-$onError: #000000;
+$onError: #000000; // ACCESSIBILITY CHECK: HIGH RISK! Review contrast of $onError (#000000) on $error (#BF3207). Black text on this dark orange/red likely fails 4.5:1. Consider white text ($onPrimary or a dedicated light $onErrorText) for better contrast.
 $alphaColor: #00000000;
 @include setStyleSheet();

@@ -109,10 +109,14 @@ export const loadPage = (get) => {
         changeText(loadData(item, states[item]), get);
     });
     get.menuState.state = loadData('menuState', get.menuState.state);
-    menuItems.style.display = loadData('menuState', get.menuState.state);
-    if (window.innerWidth < 699) {
-        get.itemBox('container').element.style.marginBottom = loadData('boxHeight', '121px');
-    };
+    // Ensure menuItems is defined before trying to set its style
+    const menuItemsElement = document.getElementById('menuItems');
+    if (menuItemsElement) {
+        menuItemsElement.style.display = loadData('menuState', get.menuState.state);
+    }
+
+    // Call updateMargin directly to set initial state correctly
+    updateMargin(get);
 };
 
 /**
@@ -121,17 +125,18 @@ export const loadPage = (get) => {
  * @returns the value of the last expression.
  */
 export const updateMargin = (get) => {
-    if (window.innerWidth > 699) {
-        get.itemBox('container').element.style.removeProperty('margin-bottom')
-        return;
+    const containerElement = get.itemBox('container').element;
+    const navElement = get.itemBox('navID').element; // Get the element itself to check visibility
+
+    // Check if the nav element is actually fixed at the bottom (visible and styled as such)
+    // This usually means it's visible and window width is small
+    if (window.innerWidth <= 699 && navElement && getComputedStyle(navElement).position === 'fixed') {
+        const navBarHeight = get.itemBox('navID').box.height;
+        containerElement.style.marginBottom = `${navBarHeight}px`;
+    } else {
+        containerElement.style.removeProperty('margin-bottom');
     }
-    let boxHeight = get.itemBox('navID').box.height;
-    if (window.innerWidth > 332) {
-        boxHeight = 121.4;
-    }
-    get.itemBox('container').element.style.marginBottom = `${boxHeight}px`;
-    saveData('boxHeight', `${boxHeight}px`)
-}
+};
 
 /**
  * It takes the device pixel ratio and multiplies it by 20 to get the height of the paragraph element.

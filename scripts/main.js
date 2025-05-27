@@ -1,16 +1,16 @@
 import * as get from './modules/common.js'
-import * as make from './modules/menus.js'
+// import * as make from './modules/menus.js'
 import * as run from './modules/functions.js'
 
-const mainNav = new make.menuObject();
-const setting = new make.menuObject();
+// const mainNav = new make.menuObject();
+// const setting = new make.menuObject();
 
 /* Creating a new menuObject and then calling the buildMenu function on it. */
-mainNav.container = get.nav;
-mainNav.buildMenu();
+// mainNav.container = get.nav;
+// mainNav.buildMenu();
 
-setting.container = get.settingMenu;
-setting.buildMenu();
+// setting.container = get.settingMenu;
+// setting.buildMenu();
 
 const menuButton = document.getElementById('menuToggle');
 const menuItems = document.getElementById('menuItems');

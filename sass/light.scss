@@ -7,10 +7,10 @@ $primaryVariant: #6896cc;
 $secondary: #03DAC6;
 $secondaryVariant: #006d8f;
 $background: #FFFFFF;
-$surface: #47a0f3;
+$surface: #47a0f3; // ACCESSIBILITY CHECK: HIGH RISK! Review contrast of $onSurface (#000000) on $surface (#47a0f3). Black on this sky blue likely fails 4.5:1. Consider a darker text color or a darker surface color if text must be black.
 $error: #B00020;
-$onPrimary: #000000;
-$onSecondary: #000000;
+$onPrimary: #000000; // ACCESSIBILITY CHECK: Review contrast of $onPrimary (#000000) on $primary (#9ac6ff).
+$onSecondary: #000000; // ACCESSIBILITY CHECK: Review contrast of $onSecondary (#000000) on $secondary (#03DAC6). Might be low.
 $onBackground: #000000;
 $onSurface: #000000;
 $onError: #FFFFFF;
